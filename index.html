@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Queen AD School 2K26 Banner Flex</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ==========================
+     BANNER
+========================== -->
+
+<div id="bannerContainer">
+
+<img
+id="banner"
+src="qadbanner.png"
+alt="Queen AD Banner">
+
+<div id="circleLayer"></div>
+
+</div>
+
+<!-- ==========================
+     UPLOAD POPUP
+========================== -->
+
+<div id="uploadModal">
+
+<div class="uploadBox">
+
+<h2>Book Your Space</h2>
+
+<p id="circleNumber"></p>
+
+<input
+type="text"
+id="studentName"
+placeholder="Enter your full name">
+
+<input
+type="file"
+id="imagePicker"
+accept="image/*">
+
+<button id="submitRequest">
+
+Upload Passport
+
+</button>
+
+<button id="cancelUpload">
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==========================
+     IMAGE PREVIEW
+========================== -->
+
+<div id="preview">
+
+<span id="close">&times;</span>
+
+<img id="previewImage">
+
+</div>
+
+<!-- ==========================
+     ADMIN PANEL
+========================== -->
+
+<div id="adminPanel">
+
+    <!-- LOGIN SCREEN -->
+
+    <div id="adminLoginBox" class="adminBox">
+
+        <h2>👑 Queen AD Admin</h2>
+
+        <input
+        type="password"
+        id="adminPassword"
+        placeholder="Enter Admin Password">
+
+        <div class="adminButtons">
+
+            <button id="adminLogin">Login</button>
+
+            <button id="adminCancel">Cancel</button>
+
+        </div>
+
+        <p id="loginStatus"></p>
+
+    </div>
+
+    <!-- ADMIN DASHBOARD -->
+
+    <div id="adminDashboard"
+         class="adminBox"
+         style="display:none;">
+
+        <h2>👑 Admin Dashboard</h2>
+
+        <div class="adminNav">
+
+            <button id="tabDashboard">📊</button>
+
+            <button id="tabPending">📥</button>
+
+            <button id="tabApproved">✅</button>
+
+            <button id="tabSettings">⚙️</button>
+
+        </div>
+
+        <hr>
+
+        <!-- ================= Dashboard ================= -->
+
+        <div id="dashboardPage">
+
+            <h3>📊 Dashboard</h3>
+
+            <div class="statCard">
+                Pending
+                <span id="pendingCount">0</span>
+            </div>
+
+            <div class="statCard">
+                Approved
+                <span id="approvedCount">0</span>
+            </div>
+
+            <div class="statCard">
+                Empty
+                <span id="emptyCount">60</span>
+            </div>
+
+            <div class="statCard">
+                Total
+                <span>60</span>
+            </div>
+
+        </div>
+
+        <!-- ================= Pending ================= -->
+
+        <div id="pendingPage" style="display:none;">
+
+            <h3>📥 Pending Requests</h3>
+
+            <div id="pendingRequests">
+
+                <p>No pending requests.</p>
+
+            </div>
+
+        </div>
+
+        <!-- ================= Approved ================= -->
+
+        <div id="approvedPage" style="display:none;">
+
+            <h3>✅ Approved Students</h3>
+
+            <div id="approvedStudents">
+
+                <p>No approved students.</p>
+
+            </div>
+
+        </div>
+
+<!-- ================= Settings ================= -->
+
+<div id="settingsPage" style="display:none;">
+
+    <h3>⚙️ Settings</h3>
+
+    <button id="generateBanner">
+        🖨️ Generate Print Banner
+    </button>
+
+    <br><br>
+
+    <button id="adminLogout">
+        🚪 Logout
+    </button>
+
+</div>
+
+    </div>
+
+</div>
+<!-- Floating Button -->
+
+<button id="adminOpen">
+
+⚙️
+
+</button>
+
+<!-- ==========================
+     IMAGE PREVIEW
+========================== -->
+
+<div id="imagePreview">
+
+    <span id="closePreview">&times;</span>
+
+    <img id="previewLarge">
+
+</div>
+
+<!-- PRINT PAGE -->
+
+<div id="printPage">
+
+    <img
+    id="printBanner"
+    src="qadbanner.png">
+
+    <div id="printCircles"></div>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+
+<script type="module" src="script.js"></script>
+
+</body>
+
+</html>

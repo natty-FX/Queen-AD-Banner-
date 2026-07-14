@@ -1,0 +1,596 @@
+/*=================================
+ Queen AD School Banner Flex
+=================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+
+    background:#2b0018;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+/*==============================
+ Banner
+==============================*/
+
+#bannerContainer{
+
+    position:relative;
+
+    width:min(1100px,96vw);
+
+    margin:auto;
+
+}
+
+#banner{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:18px;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
+
+}
+
+#circleLayer{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+/*==============================
+ Circles
+==============================*/
+
+.circle{
+
+    position:absolute;
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.1);
+
+    border:2px solid gold;
+
+    transition:.25s;
+
+}
+
+.circle:hover{
+
+    transform:scale(1.15);
+
+    box-shadow:0 0 15px gold;
+
+}
+
+.circle.empty::after{
+
+    content:"+";
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+}
+
+.circle img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/*==============================
+ Upload Popup
+==============================*/
+
+#uploadModal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:5000;
+
+}
+
+.uploadBox{
+
+    background:white;
+
+    width:min(400px,92vw);
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.uploadBox h2{
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+}
+
+.uploadBox input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:10px 0;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+}
+
+.uploadBox button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+#submitRequest{
+
+    background:#0b7a35;
+
+    color:white;
+
+}
+
+#cancelUpload{
+
+    background:#b71c1c;
+
+    color:white;
+
+}
+
+/*==============================
+ Preview
+==============================*/
+
+#preview{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.92);
+
+    z-index:6000;
+
+}
+
+#preview img{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    border-radius:15px;
+
+}
+
+#printContainer{
+
+    width:min(1100px,96vw);
+
+    margin:auto;
+
+}
+
+#close{
+
+    position:absolute;
+
+    top:20px;
+
+    right:25px;
+
+    color:white;
+
+    font-size:45px;
+
+    cursor:pointer;
+
+}
+
+/*==============================
+ Admin Button
+==============================*/
+
+#adminOpen{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#111;
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    z-index:7000;
+
+}
+
+.adminButtons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:10px;
+
+}
+
+.adminButtons button{
+
+    flex:1;
+
+}
+
+/*==============================
+ Admin Panel
+==============================*/
+
+#adminPanel{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.75);
+
+    z-index:8000;
+
+}
+
+.adminBox{
+
+    width:min(500px,95vw);
+
+    max-height:85vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.adminBox input{
+
+    width:100%;
+
+    padding:10px;
+
+    margin:10px 0;
+
+}
+
+.adminBox button{
+
+    width:100%;
+
+    padding:10px;
+
+    margin-top:10px;
+
+}
+
+#adminDashboard{
+    display:none;
+}
+
+#loginStatus{
+    margin-top:10px;
+    color:red;
+    text-align:center;
+}
+
+.adminNav{
+display:flex;
+gap:8px;
+margin:15px 0;
+}
+
+.adminNav button{
+flex:1;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#b8860b;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.statCard{
+background:#f5f5f5;
+border-radius:10px;
+padding:12px;
+margin:10px 0;
+font-size:18px;
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+}
+
+/* ==========================
+   PENDING REQUEST CARD
+========================== */
+
+.requestCard{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:15px;
+    margin:15px 0;
+    text-align:center;
+}
+
+.requestImage{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid gold;
+    margin-bottom:10px;
+}
+
+.requestCard button{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.requestCard button:first-of-type{
+    background:#0a8f3d;
+    color:white;
+}
+
+.requestCard button:last-of-type{
+    background:#c62828;
+    color:white;
+}
+
+/* ==========================
+   IMAGE PREVIEW
+========================== */
+
+#imagePreview{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.9);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+#previewLarge{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    border-radius:15px;
+
+}
+
+#closePreview{
+
+    position:absolute;
+
+    top:20px;
+
+    right:25px;
+
+    color:white;
+
+    font-size:45px;
+
+    cursor:pointer;
+
+}
+
+.requestImage{
+
+    cursor:pointer;
+
+}
+
+/*==============================
+ Mobile
+==============================*/
+
+@media(max-width:600px){
+
+.circle{
+
+    width:20px;
+
+    height:20px;
+
+}
+
+.circle.empty::after{
+
+    font-size:12px;
+
+}
+
+}
+
+/*=========================
+PRINT PAGE
+=========================*/
+
+#printPage{
+
+    display:none;
+
+    position:relative;
+
+    width:100%;
+
+    background:white;
+
+}
+
+#printBanner{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:15px;
+
+}
+
+#printCircles{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+.printCircle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:2px solid gold;
+
+    box-sizing:border-box;
+
+}
+
+.printCircle img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
